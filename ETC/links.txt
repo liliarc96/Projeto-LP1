@@ -1,0 +1,1 @@
+https://kevinhughes.ca/tutorials/opencv-install-on-windows-with-codeblocks-and-mingw
