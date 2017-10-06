@@ -1,1 +1,11 @@
-https://kevinhughes.ca/tutorials/opencv-install-on-windows-with-codeblocks-and-mingw
+--> Guia de instalação do OpenCV no Windows <--
+https://kevinhughes.ca/tutorials/opencv-install-on-windows-with-codeblocks-and-mingw 
+
+--> Guia de instalação do OpenCV no Linux <--
+http://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html
+
+--> Outros guias de OpenCV <--
+https://kevinhughes.ca/tutorials/
+
+--> Como rodar o cmake <--
+https://cmake.org/runningcmake/
