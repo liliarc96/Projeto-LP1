@@ -2,7 +2,7 @@
 --> Guia de instalação do OpenCV no Windows <--
 //
 *O CMake não encontra o MingW dentro do diretório do CodeBlocks. Instalando o MingW em C:/ resolve o problema.
-**OpenCV 3.3.0 não tem /x86/mingw, tem que baixar uma versão mais antiga... (ノಠ益ಠ)ノ彡┻━┻
+**OpenCV 3.3.0 não tem /x86/mingw, tem que baixar uma versão mais antiga (opencv 2.4.13.3)... (ノಠ益ಠ)ノ彡┻━┻
 ***No passo 5, usar C:/opencv como source não funciona pois o programa não encontra CMakeLists.txt (opencv 3.3.0). O caminho que tem o .txt é C:/opencv/sources. (┛◉Д◉)┛彡┻━┻
 //
 https://kevinhughes.ca/tutorials/opencv-install-on-windows-with-codeblocks-and-mingw 
