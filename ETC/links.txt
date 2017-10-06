@@ -2,7 +2,7 @@
 --> Guia de instalação do OpenCV no Windows <--
 //
 *O CMake não encontra o MingW dentro do diretório do CodeBlocks. Instalando o MingW em C:/ resolve o problema.
-**No passo 5, usar C:/opencv como source não funciona pois não encontra CMakeLists.txt. O caminho que tem o .txt é C:/opencv/sources.
+**No passo 5, usar C:/opencv como source não funciona pois o programa não encontra CMakeLists.txt. O caminho que tem o .txt é C:/opencv/sources.
 //
 https://kevinhughes.ca/tutorials/opencv-install-on-windows-with-codeblocks-and-mingw 
 ----------------------------------------------------------------------------------------------------------------------------------------
