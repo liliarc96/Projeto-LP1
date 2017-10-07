@@ -1,0 +1,55 @@
+                                             --> PARA OPENCV 2.4.13 NO WINDOWS 10 <--
+                                             
+     *Imagens de guia em https://kevinhughes.ca/tutorials/opencv-install-on-windows-with-codeblocks-and-mingw (*DESATUALIZADO*)*
+
+1.Instale o MingW (http://sourceforge.net/projects/mingw/files/) em C:\. Escolha mingw32-base e mingw32-gcc-g++
+
+2.Painel de Controle -> Sistema-> Configurações Avançadas do Sistema
+2.1.Na aba Avançado -> Variáveis de Ambiente. Na parte Variáveis de Sistema selecione a variável Path -> Editar... -> Editar texto...
+2.2.Vá até o final do Valor da Variável e digite C:\MinGW\bin;
+2.3.Abra o Prompt de Comando e digite path para checar se o MinGW aparece no texto
+
+3.No Code::Blocks mude o local do MingW para o novo local em Settings -> Compiler (Toolchain executables -> Compiler's installation 
+directiory -> C:\MinGW) e Settings -> Debugger (GDB/CDB debugger -> Default ->Executable path -> C:\MinGW\bin\gdb.exe)
+
+4.Instale o OpenCV (http://opencv.org/releases.html) e escolha o local de instalação como C:\
+
+5.Instale o CMake (https://cmake.org/download/) em C:\
+5.1.Abra o CMake e bote C:/opencv/sources em source code e C:\opencv\build (C:\opencv\build\install\x86\mingw (?)) em build binaries. 
+Clique em Configure -> minGW makefiles
+5.2.Depois que o CMake configurar o opencv, clique em Generate
+
+6.Vá até C:\opencv\build (C:\opencv\build\install\x86\mingw (?)) e num espaço em branco faça: SHIFT + BOTÃO DIREITO -> Abrir janela do 
+PowerShell aqui
+6.1.Na janela do Windows PowerShell digite mingw32-make
+----------------------------------------------------------------------------------------------------------------------------------------
+                                            --> LISTAGEM DE ERRO(S?) DO MINGW32-MAKE <--
+                                                 Erro BTNS_AUTOSIZE e BTNS_BUTTON
+C:\opencv\sources\modules\highgui\src\window_w32.cpp:1853:81: error: 'BTNS_AUTOSIZE' was not declared in this scope
+                                       WS_CHILD | CCS_TOP | TBSTYLE_WRAPABLE | BTNS_AUTOSIZE | BTNS_BUTTON,
+                                                                               ^~~~~~~~~~~~~
+C:\opencv\sources\modules\highgui\src\window_w32.cpp:1853:97: error: 'BTNS_BUTTON' was not declared in this scope
+                                         WS_CHILD | CCS_TOP | TBSTYLE_WRAPABLE | BTNS_AUTOSIZE | BTNS_BUTTON,
+                                                                                                 ^~~~~~~~~~~
+1.Abra C:\MingW\include\commctrl.h com um editor de texto e procure por /* define _WIN32_IE if you really want it */
+2.
+  Abaixo de /* define _WIN32_IE if you really want it */ terá escrito:
+#if 0
+#define _WIN32_IE	0x0300
+#endif
+  Mude para:
+#if 1
+#define _WIN32_IE	0x0500
+#endif
+----------------------------------------------------------------------------------------------------------------------------------------
+6.2.Após o mingw32-make chegar no 100%, digite mingw32-make install.
+
+7.Faça o mesmo que o passo (2) com OpenCV, mas adicione C:\opencv\build\bin (C:\opencv\build\install\x86\mingw\bin (?)) ao final do 
+Valor da Variável. Ao terminar, teste no Prompt de Comando
+
+
+                                                 --> CONFIGURANDO NO CODE::BLOCKS <--
+1.Crie um novo projeto e dê um clique com o botão direito e escolha Build Options...
+1.1.Search directories -> Compiler -> C:\opencv\build\include
+1.2.Search directories -> Linker -> C:\opencv\build\lib (C:\opencv\build\install\x86\mingw\lib (?))
+1.3.Linker settings -> Add -> todos os arquivos encontrados dentro de C:\opencv\build\lib (C:\opencv\build\install\x86\mingw\lib (?))
