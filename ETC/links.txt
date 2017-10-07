@@ -1,21 +1,11 @@
 ----------------------------------------------------------------------------------------------------------------------------------------
---> Guia de instalação do OpenCV no Windows <--
-//
-*O CMake não encontra o MingW dentro do diretório do CodeBlocks. Instalando o MingW em C:/ resolve o problema.
-**OpenCV 3.3.0 não tem /x86/mingw, tem que baixar uma versão mais antiga (opencv 2.4.13.3)... (ノಠ益ಠ)ノ彡┻━┻
-***No passo 5, usar C:/opencv como source não funciona pois o programa não encontra CMakeLists.txt (opencv 3.3.0). O caminho que tem o .txt é C:/opencv/sources. (┛◉Д◉)┛彡┻━┻
-//
+--> Instalação do OpenCV no Windows <--
 https://kevinhughes.ca/tutorials/opencv-install-on-windows-with-codeblocks-and-mingw
-****Não existe mais a pasta MingW no opencv, usar o guia abaixo no caso de algum erro.
-*****C:\opencv\build\x86\mingw onde ele manda usar mingw-make não funciona, usar em C:\opencv\build.
 https://stackoverflow.com/questions/41918477/how-to-build-opencv-3-2-0-with-mingw-on-windows
 ----------------------------------------------------------------------------------------------------------------------------------------
---> Guia de instalação do OpenCV no Linux <--
+--> Instalação do OpenCV no Linux <--
 http://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html
 ----------------------------------------------------------------------------------------------------------------------------------------
 --> Outros guias de OpenCV <--
 https://kevinhughes.ca/tutorials/
-----------------------------------------------------------------------------------------------------------------------------------------
---> Como rodar o cmake <--
-https://cmake.org/runningcmake/
 ----------------------------------------------------------------------------------------------------------------------------------------
