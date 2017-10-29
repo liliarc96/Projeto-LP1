@@ -1,0 +1,2 @@
+Tutorial para instalar OpenCV no ubuntu 17.04
+Link: https://github.com/milq/milq/blob/master/scripts/bash/install-opencv.sh
