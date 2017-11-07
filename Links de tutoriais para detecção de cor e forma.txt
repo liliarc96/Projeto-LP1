@@ -1,0 +1,6 @@
+http://answers.opencv.org/question/9832/opencv-for-object-tracking-form-and-color-detection/
+https://stackoverflow.com/questions/9018906/detect-rgb-color-interval-with-opencv-and-c
+http://opencv-srf.blogspot.com.br/2010/09/object-detection-using-color-seperation.html
+https://github.com/nickumia/Color-Detect
+https://www.learnopencv.com/color-spaces-in-opencv-cpp-python/
+https://docs.opencv.org/3.1.0/de/d7a/tutorial_table_of_content_core.html
