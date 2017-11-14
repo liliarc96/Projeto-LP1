@@ -1,4 +1,4 @@
-#include "Record.h"
+#include "Jogo.h"
 #include <iostream>
 // adicionar include de arquivo
 
