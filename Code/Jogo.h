@@ -3,7 +3,7 @@
 #include "GerenciamentoDeImagens.h"
 #include <iostream>
 
-class Jogo{
+class Jogo: public GerenciamentoDeImagens{
     private:
         int pontuacao;
         std::string cor;
@@ -21,4 +21,4 @@ class Jogo{
         void processamentoDeImagens();
 };
 
-#endif // RECORD_H
+#endif // JOGO_H
