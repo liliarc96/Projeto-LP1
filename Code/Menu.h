@@ -1,6 +1,6 @@
 
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MENU_H
+#define MENU_H
 #include "Jogo.h"
 #include "User.h"
 
