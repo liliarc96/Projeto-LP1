@@ -1,0 +1,2 @@
+https://opencv-srf.blogspot.com.br/2010/09/object-detection-using-color-seperation.html //Cor
+https://opencv-srf.blogspot.com.br/2011/09/object-detection-tracking-using-contours.html //Forma
