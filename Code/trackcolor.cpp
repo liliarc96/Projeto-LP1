@@ -27,16 +27,26 @@ using namespace std;
  int iHighV = 255;
 
   //Create trackbars in "Control" window
- createTrackbar("LowH", "Control", &iLowH, 179); //Hue (0 - 179)
+  /*MATRIZ*/
+ //Código está feito para detectar vermelho!
+ //Matriz Vermelho (160-179)
+ //Matriz Laranja (0-22)
+ //Matriz Amarelo (22-38)
+ //Matriz Verde (38-75)
+ //Matriz Azul (75-130)
+ //Matriz Violeta (130-160)
+ createTrackbar("LowH", "Control", &iLowH, 179); 
  createTrackbar("HighH", "Control", &iHighH, 179);
-
-  createTrackbar("LowS", "Control", &iLowS, 255); //Saturation (0 - 255)
+  
+ /*SATURAÇÃO*/
+ createTrackbar("LowS", "Control", &iLowS, 255); //Saturation (0 - 255)
  createTrackbar("HighS", "Control", &iHighS, 255);
-
-  createTrackbar("LowV", "Control", &iLowV, 255);//Value (0 - 255)
+  
+ /*VALOR*/
+ createTrackbar("LowV", "Control", &iLowV, 255);//Value (0 - 255)
  createTrackbar("HighV", "Control", &iHighV, 255);
 
-  int iLastX = -1;
+ int iLastX = -1;
  int iLastY = -1;
 
   //Capture a temporary image from the camera
