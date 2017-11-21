@@ -12,5 +12,6 @@ int Menu::getMenu(){
 }
 
 void Menu::MostraMenu(){
-
+     //cout << "      Bem-vindo ao Jogo das Cores        " << endl;
+    
 }
