@@ -4,31 +4,31 @@
 
 using namespace std;
 
-void Record::setPontuacao(int p){
+void Jogo::setPontuacao(int p){
     pontuacao = p;
 }
 
-int Record::getPontuacao(){
+int Jogo::getPontuacao(){
     return pontuacao;
 }
 
-void Record::setCor(){
+/*void Jogo::setCor(){
     //adicionar random para escolher cor
 }
 
-string Record::getCor(){
+string Jogo::getCor(){
     return cor;
+}*/
+
+void Jogo::iniciarJogo(){
+    GeremciamentoDeImagens::reconhecerImagem();
 }
 
-void Record::iniciarJogo(){
-    // chamar opencv
+int Jogo::encerrarJogo(){
+
 }
 
-int Record::encerrarJogo(){
-    // terminar jogo e exibir pontuacao
-}
-
-void Record::processamentoDeImagens(){
-    //receber imagem da classe opencv e reconhecer 
-}
+/*void Jogo::processamentoDeImagens(){
+    //receber imagem da classe opencv e reconhecer
+} */
 
