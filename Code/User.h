@@ -3,7 +3,7 @@
 #include "Record.h"
 #include <iostream>
 
-class User: public Record{
+class User: public Jogo{
   private:
     std::string nome;
   public:
