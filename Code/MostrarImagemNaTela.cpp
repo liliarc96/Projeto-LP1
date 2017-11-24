@@ -9,7 +9,7 @@ using namespace cv;
 using namespace std;
 int main( int argc, char** argv )
 {
-    String imageName( "/home/rebeca/Imagens/Experimeto 2.png" ); // by default
+    String imageName( ".../adicionar imagem" ); // by default
     if( argc > 1)
     {
         imageName = argv[1];
