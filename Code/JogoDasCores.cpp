@@ -1,51 +1,45 @@
-#include "User.h"
+#include "Imagem.h"
 #include "Jogo.h"
-//#include "Menu.h"
-#include "Record.h"
+#include "Score.h"
 #include <iostream>
 #include <string>
-#include <opencv2/opencv.hpp>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include "opencv2/imgproc/imgproc.hpp"
+#include <fstream>
+#include <stdlib.h>
 
 using namespace std;
 
 int main(){
-    User u;
+    int op;
     Jogo jg;
-   // Menu m;
-    Record r;
+    Score sc;
 
-    int opcao;
-    string n;
-
-    cout << "       Bem-vindo ao Jogo das Cores " << endl;
+    cout << "       Bem-vindo ao Jogo das Cores" << endl;
 
     while(1){
-        cout << "Menu:      1 - Iniciar jogo " << endl;
-        cout << "           2 - Ver ranking  " << endl;
-        cout << "           3 - Encerrar jogo" << endl;
+        cout << "Menu:" << endl;
+        cout << "       1 - Iniciar jogo" << endl;
+        cout << "       2 - Ver ranking" << endl;
+        cout << "       3 - Encerrar jogo" << endl;
 
-        cout << "Escolha uma das opcoes: ";
-        cin >> opcao;
+        cout << "Escolha uma das opcoes para continuar" << endl;
+        cin >> op;
 
-        cout << endl;
-
-        switch(opcao){
+        switch(op){
         case 1:
             jg.iniciarJogo();
             break;
         case 2:
-            r.mostrarRecord();
+            sc.mostrarScore();
             break;
         case 3:
-            cout << "Obrigado por jogar";
+            cout << "Obrigado por jogar!" << endl;
+            system("FIM");
             break;
         default:
-            cout << "Escolha invalida, tente novamente." << endl;
+            cout << "Numero escolhido nao existe, tente novamente" << endl;
             break;
         }
     }
+
     return 0;
 }
