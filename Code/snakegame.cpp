@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <curses.h>
 #include <iostream>
+
 bool gameover;
 using namespace cv;
 const int width = 500;
@@ -31,7 +32,8 @@ void Setup()
 void DrawAsnake(Mat &img)
 {
     const int HEAD_SIZE = 10;
-    const int BODY_SIZE = 10;
+    const int BODY_SIZE = 10; //warning: unused variable ‘BODY_SIZE’ [-Wunused-variable]|
+    
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -52,12 +54,12 @@ void SnakeMove()
 
 
 
-        if (_kbhit())
+        if (_kbhit()) //error: ‘_kbhit’ was not declared in this scope|
 
         {
 
 
-            switch (_getch())
+            switch (_getch()) //error: ‘_getch’ was not declared in this scope|
             {
             case 'a'://75
                 dir = LEFT;
