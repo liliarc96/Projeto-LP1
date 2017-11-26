@@ -12,7 +12,7 @@ using namespace cv;
 
 int Imagem::reconhecerCor(){
   //mostrar retangulo com a cor na tela
-  char **argv;
+  char *argv;
   int argc;
   int pontos = 0;
 
