@@ -1,8 +1,7 @@
+#include "Cor.h"
 #include "Imagem.h"
 #include "Jogo.h"
 #include "Score.h"
-#include "Cor.h"
-#include "GeraCor.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -13,7 +12,7 @@ using namespace std;
 int main(){
     int op;
     Jogo jg;
-    Score sc;
+   // Score sc;
 
     cout << "       Bem-vindo ao Jogo das Cores" << endl;
 
@@ -30,9 +29,9 @@ int main(){
         case 1:
             jg.iniciarJogo();
             break;
-        case 2:
+        /*case 2:
             sc.mostrarScore();
-            break;
+            break;*/
         case 3:
             cout << "Obrigado por jogar!" << endl;
             system("FIM");

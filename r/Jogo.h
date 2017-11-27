@@ -1,17 +1,17 @@
 #ifndef JOGO_H
 #define JOGO_H
 #include "Imagem.h"
-//#define MAX 100
+
 
 class Jogo: public Imagem{
     private:
-        //int pontuacao;
+        int pontuacao;
     public:
         void iniciarJogo();
-        //int encerrarJogo();
+        int encerrarJogo();
 
-        //void setPontuacao(int p);
-        //int getPontuacao();
+        void setPontuacao(int p);
+        int getPontuacao();
 
         void processamentoDeImagens();
 };

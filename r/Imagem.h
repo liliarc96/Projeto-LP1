@@ -1,10 +1,15 @@
 #ifndef IMAGEM_H
 #define IMAGEM_H
-#include "GeraCor.h"
+#include "Cor.h"
 
-class Imagem: public GeraCor{
+class Imagem: public Cor{
     public:
-        int reconhecerCor();
+        int reconhecerAmarelo();
+        int reconhecerAzul();
+        int reconhecerBranco();
+        int reconhecerPreto();
+        int reconhecerVerde();
+        int reconhecerVermelho();
 };
 
 #endif // IMAGEM_H

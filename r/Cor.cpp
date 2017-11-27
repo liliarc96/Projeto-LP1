@@ -4,16 +4,14 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
-using namespace cv;
 using namespace std;
+using namespace cv;
 
-Cor::Cor(int i){
-  int argc;
-  char* argv;
+int Cor::mostrarAmarelo(){
+    int argc;
+    char* argv;
 
-  switch (i) {
-    case 0:
-      String imageName( "/home/rebeca/amarelo.jpg"); //acessar imagem
+    string imageName( "/home/rebeca/amarelo.png"); //acessar imagem
       if(argc > 1)
       {
           imageName = argv[1];
@@ -27,101 +25,99 @@ Cor::Cor(int i){
       namedWindow( "Display window", WINDOW_AUTOSIZE ); //abrir janela para exibir
       imshow( "Display window", image );
       waitKey(0);
+}
 
-      break;
-    case 1:
-      String imageName( "/home/rebeca/azul.png");
-      if(argc > 1){
-          imageName = argv[1];
-      }
-      Mat image;
-      image = imread( imageName, IMREAD_COLOR );
+int Cor::mostrarAzul(){
+    int argc;
+    char* argv;
 
-      if(image.empty()){
-          cout <<  "Falha ao abrir imagem" << std::endl ;
-          return -1;
-      }
+    string imageName( "/home/rebeca/azul.jpg"); //acessar imagem
+    if(argc > 1){
+        imageName = argv[1];
+    }
+    Mat image;
+    image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
+    if(image.empty()){ //verficar se o arquivo existe
+        cout <<  "Falha ao abrir imagem" << std::endl ;
+        return -1;
+    }
+    namedWindow( "Display window", WINDOW_AUTOSIZE ); //abrir janela para exibir
+    imshow( "Display window", image );
+    waitKey(0);
+}
 
-      namedWindow( "Display window", WINDOW_AUTOSIZE );
-      imshow( "Display window", image );
-      waitKey(0);
+int Cor::mostrarBranco(){
+    int argc;
+    char* argv;
 
-      break;
-    case 2:
-      String imageName( "/home/rebeca/branco.png");
-      if(argc > 1){
-          imageName = argv[1];
-      }
-      Mat image;
-      image = imread( imageName, IMREAD_COLOR );
+    string imageName( "/home/rebeca/branco.jpg"); //acessar imagem
+    if(argc > 1){
+        imageName = argv[1];
+    }
+    Mat image;
+    image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
+    if(image.empty()){ //verficar se o arquivo existe
+        cout <<  "Falha ao abrir imagem" << std::endl ;
+        return -1;
+    }
+    namedWindow( "Display window", WINDOW_AUTOSIZE ); //abrir janela para exibir
+    imshow( "Display window", image );
+    waitKey(0);
+}
 
-      if(image.empty()){
-          cout <<  "Falha ao abrir imagem" << std::endl ;
-          return -1;
-      }
+int Cor::mostrarPreto(){
+    int argc;
+    char* argv;
 
-      namedWindow( "Display window", WINDOW_AUTOSIZE );
-      imshow( "Display window", image );
-      waitKey(0);
+    string imageName( "/home/rebeca/preto.jpg"); //acessar imagem
+    if(argc > 1){
+        imageName = argv[1];
+    }
+    Mat image;
+    image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
+    if(image.empty()){ //verficar se o arquivo existe
+        cout <<  "Falha ao abrir imagem" << std::endl ;
+        return -1;
+    }
+    namedWindow( "Display window", WINDOW_AUTOSIZE ); //abrir janela para exibir
+    imshow( "Display window", image );
+    waitKey(0);
+}
 
-      break;
-    case 3:
-      String imageName( "/home/rebeca/preto.png");
-      if(argc > 1){
-          imageName = argv[1];
-      }
-      Mat image;
-      image = imread( imageName, IMREAD_COLOR );
+int Cor::mostrarVerde(){
+    int argc;
+    char* argv;
 
-      if(image.empty()){
-          cout <<  "Falha ao abrir imagem" << std::endl ;
-          return -1;
-      }
+    string imageName( "/home/rebeca/verde.jpg"); //acessar imagem
+    if(argc > 1){
+        imageName = argv[1];
+    }
+    Mat image;
+    image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
+    if(image.empty()){ //verficar se o arquivo existe
+        cout <<  "Falha ao abrir imagem" << std::endl ;
+        return -1;
+    }
+    namedWindow( "Display window", WINDOW_AUTOSIZE ); //abrir janela para exibir
+    imshow( "Display window", image );
+    waitKey(0);
+}
 
-      namedWindow( "Display window", WINDOW_AUTOSIZE );
-      imshow( "Display window", image );
-      waitKey(0);
+int Cor::mostrarVermelho(){
+    int argc;
+    char* argv;
 
-      break;
-    case 4:
-      String imageName( "/home/rebeca/verde.png");
-      if(argc > 1){
-          imageName = argv[1];
-      }
-      Mat image;
-      image = imread( imageName, IMREAD_COLOR );
-
-      if(image.empty()){
-          cout <<  "Falha ao abrir imagem" << std::endl ;
-          return -1;
-      }
-
-      namedWindow( "Display window", WINDOW_AUTOSIZE );
-      imshow( "Display window", image );
-      waitKey(0);
-
-      break;
-    case 5:
-      String imageName( "/home/rebeca/vemelho.png");
-      if(argc > 1){
-          imageName = argv[1];
-      }
-      Mat image;
-      image = imread( imageName, IMREAD_COLOR );
-
-      if(image.empty())
-      {
-          cout <<  "Falha ao abrir imagem" << std::endl ;
-          return -1;
-      }
-
-      namedWindow( "Display window", WINDOW_AUTOSIZE );
-      imshow( "Display window", image );
-      waitKey(0);
-
-      break;
-    default:
-      cout << "Cor invalida" << endl;
-      break
-  }
+    string imageName( "/home/rebeca/vermelho.jpg"); //acessar imagem
+    if(argc > 1){
+        imageName = argv[1];
+    }
+    Mat image;
+    image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
+    if(image.empty()){ //verficar se o arquivo existe
+        cout <<  "Falha ao abrir imagem" << std::endl ;
+        return -1;
+    }
+    namedWindow( "Display window", WINDOW_AUTOSIZE ); //abrir janela para exibir
+    imshow( "Display window", image );
+    waitKey(0);
 }

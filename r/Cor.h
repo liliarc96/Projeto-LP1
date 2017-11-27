@@ -2,10 +2,13 @@
 #define COR_H
 
 class Cor{
-  private:
-    int i;
   public:
-    Cor(int i);
+    int mostrarAmarelo();
+    int mostrarAzul();
+    int mostrarBranco();
+    int mostrarPreto();
+    int mostrarVerde();
+    int mostrarVermelho();
 };
 
 #endif //COR_H
