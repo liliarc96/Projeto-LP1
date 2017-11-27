@@ -57,7 +57,7 @@ int Imagem::reconhecerAmarelo(){
 
         Mat imgThresholded;
         //
-        inRange(imgHSV, Scalar(22, 38, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
+        inRange(imgHSV,  Scalar(25, 20, 20), Scalar(32, 255, 255), imgThresholded); //Threshold the image
 
         //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
@@ -83,6 +83,7 @@ int Imagem::reconhecerAmarelo(){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
                 a++;
+                //return a;
             }
 
             iLastX = posX;
@@ -96,11 +97,11 @@ int Imagem::reconhecerAmarelo(){
 
         if (waitKey(30) == 27){ //Se o esc for pressionado quebra o loop
             cout << "Tecla Esc foi pressionada pelo usuario" << endl;
-            break;
+            return a;
         }
     } // Fim do while
 
-    return a;
+    //return a;
 }
 
 int Imagem::reconhecerAzul(){
@@ -153,7 +154,7 @@ int Imagem::reconhecerAzul(){
 
         Mat imgThresholded;
         //
-        inRange(imgHSV, Scalar(75, 130, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
+        inRange(imgHSV, Scalar(170, 150, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
 
         //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
@@ -249,7 +250,7 @@ int Imagem::reconhecerBranco(){
 
         Mat imgThresholded;
         //
-        inRange(imgHSV, Scalar(255, 255, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
+        inRange(imgHSV, Scalar(170, 150, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
 
         //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
@@ -345,7 +346,7 @@ int Imagem::reconhecerPreto(){
 
         Mat imgThresholded;
         //
-        inRange(imgHSV, Scalar(0, 0, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
+        inRange(imgHSV, Scalar(170, 150, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
 
         //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
@@ -441,7 +442,7 @@ int Imagem::reconhecerVerde(){
 
         Mat imgThresholded;
         //
-        inRange(imgHSV, Scalar(38, 75, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
+        inRange(imgHSV, Scalar(170, 150, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
 
         //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
@@ -537,7 +538,7 @@ int Imagem::reconhecerVermelho(){
 
         Mat imgThresholded;
         //
-        inRange(imgHSV, Scalar(160, 179, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
+        inRange(imgHSV, Scalar(170, 150, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
 
         //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
