@@ -21,14 +21,14 @@ int Imagem::reconhecerCor(){
     }
     //camera ligada
     namedWindow("Control", CV_WINDOW_AUTOSIZE); //Abri janela chamada "Control"
-    int iLowH = 170;
+  /*int iLowH = 170;
     int iHighH = 179;
 
     int iLowS = 150;
     int iHighS = 255;
 
     int iLowV = 60;
-    int iHighV = 255;
+    int iHighV = 255;*/
 
     /*Criando trackbars na janela "Control": Matrizes das Cores
     - Matriz Amarelo (22-38)
@@ -68,7 +68,7 @@ int Imagem::reconhecerCor(){
       cvtColor(imgOriginal, imgHSV, COLOR_BGR2HSV); //Converter o frame de BGR para HSV
 
       Mat imgThresholded;
-      inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); //Threshold the image
+      inRange(imgHSV, Scalar(170, 150, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
 
       //morphological opening (removes small objects from the foreground)
       erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
