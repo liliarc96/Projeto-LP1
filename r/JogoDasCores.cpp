@@ -1,6 +1,8 @@
 #include "Imagem.h"
 #include "Jogo.h"
 #include "Score.h"
+#include "Cor.h"
+#include "GeraCor.h"
 #include <iostream>
 #include <string>
 #include <fstream>
