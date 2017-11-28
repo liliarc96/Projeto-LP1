@@ -27,14 +27,15 @@ int main(){
 
         switch(op){
         case 1:
-            jg.iniciarJogo();
+            jg.iniciarJogo(1);
             break;
         /*case 2:
             sc.mostrarScore();
             break;*/
         case 3:
             cout << "Obrigado por jogar!" << endl;
-            system("FIM");
+            cout << "FIM" << endl;
+            return 1;
             break;
         default:
             cout << "Numero escolhido nao existe, tente novamente" << endl;

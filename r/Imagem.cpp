@@ -7,13 +7,22 @@
 using namespace std;
 using namespace cv;
 
-int Imagem::reconhecerAmarelo(){
-    int a = 0; //confirmação de captura de cor
+void Imagem::setA(int a){
+    this->a = a;
+}
+
+int Imagem::getA(){
+    return a;
+}
+
+void Imagem::reconhecerAmarelo(int a){
+    Mat frame;
+    a = 0; //confirmação de captura de cor
     Cor::mostrarAmarelo();
     VideoCapture cap(0); //Captura imagem da webcam
     if(!cap.isOpened()){
       cout << "Falha ao abrir camera" << endl;
-      return -1; // Se a camera não abri o programa vai fechar
+      exit(1); // Se a camera não abri o programa vai fechar
     }
     //camera ligada
     namedWindow("Control", CV_WINDOW_AUTOSIZE); //Abri janela chamada "Control"
@@ -82,7 +91,8 @@ int Imagem::reconhecerAmarelo(){
             if (iLastX >= 0 && iLastY >= 0 && posX >= 0 && posY >= 0){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
-                a++;
+                setA(a++);
+                putText(frame, "Amarelo", Point(50, frame.rows * 0.5 + 30),FONT_HERSHEY_DUPLEX,4,Scalar(255,255,255),10);
             }
 
             iLastX = posX;
@@ -100,7 +110,7 @@ int Imagem::reconhecerAmarelo(){
         }
     } // Fim do while
 
-    return a;
+    //return a;
 }
 
 int Imagem::reconhecerAzul(){

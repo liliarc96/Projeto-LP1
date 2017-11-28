@@ -7,7 +7,7 @@ class Jogo: public Imagem{
     private:
         int pontuacao;
     public:
-        void iniciarJogo();
+        void iniciarJogo(int a);
         int encerrarJogo();
 
         void setPontuacao(int p);

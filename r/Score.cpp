@@ -6,7 +6,7 @@
 using namespace std;
 
 void Score::mostrarScore(){
-    //receber pontuações e montar ranking
+
 }
 
 

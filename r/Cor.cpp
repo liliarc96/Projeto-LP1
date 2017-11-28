@@ -107,7 +107,7 @@ int Cor::mostrarVermelho(){
     int argc;
     char* argv;
 
-    string imageName( "/home/rebeca/vermelho.jpg"); //acessar imagem
+    string imageName( "/home/rebeca/vermelho.png"); //acessar imagem
     if(argc > 1){
         imageName = argv[1];
     }

@@ -3,8 +3,13 @@
 #include "Cor.h"
 
 class Imagem: public Cor{
+    private:
+        int a;
     public:
-        int reconhecerAmarelo();
+        void setA(int a);
+        int getA();
+
+        void reconhecerAmarelo(int a);
         int reconhecerAzul();
         int reconhecerBranco();
         int reconhecerPreto();
