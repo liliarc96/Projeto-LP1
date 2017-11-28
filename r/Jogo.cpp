@@ -29,40 +29,40 @@ void Jogo::iniciarJogo(int a){
             Imagem::reconhecerAmarelo(getA());
             if(a > 0){
                 p += 10;
-                 putText(frame, "Pontos - 10", Point(50, frame.rows * 0.5 + 30),FONT_HERSHEY_DUPLEX,4,Scalar(255,255,255),10);
+                 //putText(frame, "Pontos - 10", Point(50, frame.rows * 0.5 + 30),FONT_HERSHEY_DUPLEX,4,Scalar(255,255,255),10);
             }
         }
 
         if(i == 1){
-            Imagem::reconhecerAzul();
+            Imagem::reconhecerAzul(getA());
             if(a > 0){
                 p += 10;
             }
         }
 
         if(i == 2){
-            Imagem::reconhecerBranco();
-            if(Imagem::reconhecerBranco() > 0){
+            Imagem::reconhecerBranco(getA());
+            if(a > 0){
                 p += 10;
             }
         }
 
         if(i == 3){
-            Imagem::reconhecerPreto();
+            Imagem::reconhecerPreto(getA());
             if(a > 0){
                 p += 10;
             }
         }
 
         if(i == 4){
-            Imagem::reconhecerVerde();
+            Imagem::reconhecerVerde(getA());
             if(a > 0){
                 p += 10;
             }
         }
 
         if(i == 5){
-            Imagem::reconhecerVermelho();
+            Imagem::reconhecerVermelho(getA());
             if(a > 0){
                 p += 10;
             }

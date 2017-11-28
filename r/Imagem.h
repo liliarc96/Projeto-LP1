@@ -10,11 +10,11 @@ class Imagem: public Cor{
         int getA();
 
         void reconhecerAmarelo(int a);
-        int reconhecerAzul();
-        int reconhecerBranco();
-        int reconhecerPreto();
-        int reconhecerVerde();
-        int reconhecerVermelho();
+        void reconhecerAzul(int a);
+        void reconhecerBranco(int a);
+        void reconhecerPreto(int a);
+        void reconhecerVerde(int a);
+        void reconhecerVermelho(int a);
 };
 
 #endif // IMAGEM_H

@@ -113,13 +113,13 @@ void Imagem::reconhecerAmarelo(int a){
     //return a;
 }
 
-int Imagem::reconhecerAzul(){
-    int a = 0; //confirmação de captura de cor
+void Imagem::reconhecerAzul(int a){
+    a = 0; //confirmação de captura de cor
     Cor::mostrarAzul();
     VideoCapture cap(0); //Captura imagem da webcam
     if(!cap.isOpened()){
       cout << "Falha ao abrir camera" << endl;
-      return -1; // Se a camera não abri o programa vai fechar
+      exit(1); // Se a camera não abri o programa vai fechar
     }
     //camera ligada
     namedWindow("Control", CV_WINDOW_AUTOSIZE); //Abri janela chamada "Control"
@@ -188,7 +188,7 @@ int Imagem::reconhecerAzul(){
             if (iLastX >= 0 && iLastY >= 0 && posX >= 0 && posY >= 0){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
-                a++;
+                setA(a++);
             }
 
             iLastX = posX;
@@ -206,16 +206,15 @@ int Imagem::reconhecerAzul(){
         }
     } // Fim do while
 
-    return a;
 }
 
-int Imagem::reconhecerBranco(){
-    int a = 0; //confirmação de captura de cor
+void Imagem::reconhecerBranco(int a){
+    a = 0; //confirmação de captura de cor
     Cor::mostrarBranco();
     VideoCapture cap(0); //Captura imagem da webcam
     if(!cap.isOpened()){
       cout << "Falha ao abrir camera" << endl;
-      return -1; // Se a camera não abri o programa vai fechar
+      exit(1); // Se a camera não abri o programa vai fechar
     }
     //camera ligada
     namedWindow("Control", CV_WINDOW_AUTOSIZE); //Abri janela chamada "Control"
@@ -284,7 +283,7 @@ int Imagem::reconhecerBranco(){
             if (iLastX >= 0 && iLastY >= 0 && posX >= 0 && posY >= 0){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
-                a++;
+                setA(a++);
             }
 
             iLastX = posX;
@@ -302,16 +301,15 @@ int Imagem::reconhecerBranco(){
         }
     } // Fim do while
 
-    return a;
 }
 
-int Imagem::reconhecerPreto(){
-    int a = 0; //confirmação de captura de cor
+void Imagem::reconhecerPreto(int a){
+    a = 0; //confirmação de captura de cor
     Cor::mostrarPreto();
     VideoCapture cap(0); //Captura imagem da webcam
     if(!cap.isOpened()){
       cout << "Falha ao abrir camera" << endl;
-      return -1; // Se a camera não abri o programa vai fechar
+      exit(1); // Se a camera não abri o programa vai fechar
     }
     //camera ligada
     namedWindow("Control", CV_WINDOW_AUTOSIZE); //Abri janela chamada "Control"
@@ -380,7 +378,7 @@ int Imagem::reconhecerPreto(){
             if (iLastX >= 0 && iLastY >= 0 && posX >= 0 && posY >= 0){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
-                a++;
+                setA(a++);
             }
 
             iLastX = posX;
@@ -398,16 +396,15 @@ int Imagem::reconhecerPreto(){
         }
     } // Fim do while
 
-    return a;
 }
 
-int Imagem::reconhecerVerde(){
-    int a = 0; //confirmação de captura de cor
+void Imagem::reconhecerVerde(int a){
+    a = 0; //confirmação de captura de cor
     Cor::mostrarVerde();
     VideoCapture cap(0); //Captura imagem da webcam
     if(!cap.isOpened()){
       cout << "Falha ao abrir camera" << endl;
-      return -1; // Se a camera não abri o programa vai fechar
+      exit(1); // Se a camera não abri o programa vai fechar
     }
     //camera ligada
     namedWindow("Control", CV_WINDOW_AUTOSIZE); //Abri janela chamada "Control"
@@ -476,7 +473,7 @@ int Imagem::reconhecerVerde(){
             if (iLastX >= 0 && iLastY >= 0 && posX >= 0 && posY >= 0){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
-                a++;
+                setA(a++);
             }
 
             iLastX = posX;
@@ -494,16 +491,15 @@ int Imagem::reconhecerVerde(){
         }
     } // Fim do while
 
-    return a;
 }
 
-int Imagem::reconhecerVermelho(){
-    int a = 0; //confirmação de captura de cor
+void Imagem::reconhecerVermelho(int a){
+    a = 0; //confirmação de captura de cor
     Cor::mostrarVermelho();
     VideoCapture cap(0); //Captura imagem da webcam
     if(!cap.isOpened()){
       cout << "Falha ao abrir camera" << endl;
-      return -1; // Se a camera não abri o programa vai fechar
+      exit(1); // Se a camera não abri o programa vai fechar
     }
     //camera ligada
     namedWindow("Control", CV_WINDOW_AUTOSIZE); //Abri janela chamada "Control"
@@ -572,7 +568,7 @@ int Imagem::reconhecerVermelho(){
             if (iLastX >= 0 && iLastY >= 0 && posX >= 0 && posY >= 0){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
-                a++;
+                setA(a++);
             }
 
             iLastX = posX;
@@ -590,5 +586,4 @@ int Imagem::reconhecerVermelho(){
         }
     } // Fim do while
 
-    return a;
 }
