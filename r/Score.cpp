@@ -1,15 +1,11 @@
 #include "Score.h"
 #include <iostream>
-#include <list>
 #include <fstream>
 #include <stdlib.h>
 
 using namespace std;
 
 void Score::mostrarScore(int p){
-    list <int> ranking;
-
-    ranking.push_back(p);
 
     ofstream scores;
     scores.open("Ranking.txt");
@@ -19,12 +15,9 @@ void Score::mostrarScore(int p){
         exit(1);
     }
 
+    scores << getPontuacao() << endl;
 
-
-    //iterator it;
-    //ranking.insert(it) << it->getPontuacao() << endl;
-
-    //ranking.close("Ranking.txt");
+    scores.close();
 }
 
 
