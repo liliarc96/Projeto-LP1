@@ -29,6 +29,7 @@ void Jogo::iniciarJogo(int a){
             Imagem::reconhecerAmarelo(getA());
             if(a > 0){
                 p += 10;
+                cout << "Pontos - " << p << endl;
                  //putText(frame, "Pontos - 10", Point(50, frame.rows * 0.5 + 30),FONT_HERSHEY_DUPLEX,4,Scalar(255,255,255),10);
             }
         }
@@ -37,6 +38,7 @@ void Jogo::iniciarJogo(int a){
             Imagem::reconhecerAzul(getA());
             if(a > 0){
                 p += 10;
+                cout << "Pontos - " << p << endl;
             }
         }
 
@@ -44,6 +46,7 @@ void Jogo::iniciarJogo(int a){
             Imagem::reconhecerBranco(getA());
             if(a > 0){
                 p += 10;
+                cout << "Pontos - " << p << endl;
             }
         }
 
@@ -51,6 +54,7 @@ void Jogo::iniciarJogo(int a){
             Imagem::reconhecerPreto(getA());
             if(a > 0){
                 p += 10;
+                cout << "Pontos - " << p << endl;
             }
         }
 
@@ -58,6 +62,7 @@ void Jogo::iniciarJogo(int a){
             Imagem::reconhecerVerde(getA());
             if(a > 0){
                 p += 10;
+                cout << "Pontos - " << p << endl;
             }
         }
 
@@ -65,6 +70,7 @@ void Jogo::iniciarJogo(int a){
             Imagem::reconhecerVermelho(getA());
             if(a > 0){
                 p += 10;
+                cout << "Pontos - " << p << endl;
             }
         }
     }

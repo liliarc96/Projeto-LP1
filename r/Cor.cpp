@@ -4,6 +4,8 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
+//Fonte do código para mostrar imagem:https://docs.opencv.org/trunk/db/deb/tutorial_display_image.html
+
 using namespace std;
 using namespace cv;
 

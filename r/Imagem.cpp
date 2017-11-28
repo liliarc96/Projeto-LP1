@@ -4,6 +4,8 @@
 #include <iostream>
 #include <stdlib.h>
 
+//Fonte do código para detectar cor: https://opencv-srf.blogspot.com.br/2010/09/object-detection-using-color-seperation.html
+
 using namespace std;
 using namespace cv;
 
@@ -92,7 +94,7 @@ void Imagem::reconhecerAmarelo(int a){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
                 setA(a++);
-                putText(frame, "Amarelo", Point(50, frame.rows * 0.5 + 30),FONT_HERSHEY_DUPLEX,4,Scalar(255,255,255),10);
+                //putText(frame, "Amarelo", Point(50, frame.rows * 0.5 + 30),FONT_HERSHEY_DUPLEX,4,Scalar(255,255,255),10);
             }
 
             iLastX = posX;
@@ -474,10 +476,13 @@ void Imagem::reconhecerVerde(int a){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
                 setA(a++);
+            } else {
+                cout << "Cor não detectada" << endl;
             }
 
             iLastX = posX;
             iLastY = posY;
+
         }
 
         imshow("Thresholded Image", imgThresholded); //show the thresholded image
@@ -573,6 +578,8 @@ void Imagem::reconhecerVermelho(int a){
 
             iLastX = posX;
             iLastY = posY;
+
+            break;
         }
 
         imshow("Thresholded Image", imgThresholded); //show the thresholded image

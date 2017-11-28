@@ -4,7 +4,7 @@
 
 class Score: public Jogo{
     public:
-        void mostrarScore();
+        void mostrarScore(int p);
 };
 
 #endif // SCORE_H
