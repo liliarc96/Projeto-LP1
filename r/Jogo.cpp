@@ -26,6 +26,9 @@ void Jogo::iniciarJogo(int a){
     for(i = 0; i <= 5; i++){
         Mat frame;
         if(i == 0){
+            cout << "Primeira cor: Amarelo" << endl;
+
+            cout << endl;
             Imagem::reconhecerAmarelo(getA());
             if(a > 0){
                 p += 10;
@@ -35,6 +38,10 @@ void Jogo::iniciarJogo(int a){
         }
 
         if(i == 1){
+            cout << "Segunda cor: Azul" << endl;
+
+            cout << endl;
+
             Imagem::reconhecerAzul(getA());
             if(a > 0){
                 p += 10;
@@ -43,6 +50,10 @@ void Jogo::iniciarJogo(int a){
         }
 
         if(i == 2){
+            cout << "Terceira cor: Branco" << endl;
+
+            cout << endl;
+
             Imagem::reconhecerBranco(getA());
             if(a > 0){
                 p += 10;
@@ -51,6 +62,11 @@ void Jogo::iniciarJogo(int a){
         }
 
         if(i == 3){
+            cout << " Quarta cor: Preto" << endl;
+
+            cout << endl;
+
+
             Imagem::reconhecerPreto(getA());
             if(a > 0){
                 p += 10;
@@ -59,6 +75,10 @@ void Jogo::iniciarJogo(int a){
         }
 
         if(i == 4){
+            cout << "Quinta cor: Verde" << endl;
+
+            cout << endl;
+
             Imagem::reconhecerVerde(getA());
             if(a > 0){
                 p += 10;
@@ -67,6 +87,9 @@ void Jogo::iniciarJogo(int a){
         }
 
         if(i == 5){
+            cout << "Sexta cor: Vermelho" << endl;
+
+            cout << endl;
             Imagem::reconhecerVermelho(getA());
             if(a > 0){
                 p += 10;

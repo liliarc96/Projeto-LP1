@@ -12,7 +12,7 @@ using namespace std;
 int main(){
     int op;
     Jogo jg;
-    Score sc;
+    //Score sc;
 
     cout << "       Bem-vindo ao Jogo das Cores" << endl;
 
@@ -29,9 +29,9 @@ int main(){
         case 1:
             jg.iniciarJogo(1);
             break;
-        case 2:
-            sc.mostrarScore(1);
-            break;
+       /* case 2:
+            sc.mostrarScore();
+            break;*/
         case 3:
             cout << "Obrigado por jogar!" << endl;
             cout << "FIM" << endl;

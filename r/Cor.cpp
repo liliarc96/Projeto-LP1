@@ -10,14 +10,14 @@ using namespace std;
 using namespace cv;
 
 int Cor::mostrarAmarelo(){
-    int argc;
-    char* argv;
+    /*int argc;
+    char* argv;*/
 
     string imageName( "/home/rebeca/amarelo.png"); //acessar imagem
-      if(argc > 1)
+      /*if(argc > 1)
       {
           imageName = argv[1];
-      }
+      }*/
       Mat image;
       image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
       if(image.empty()){ //verficar se o arquivo existe
@@ -30,13 +30,13 @@ int Cor::mostrarAmarelo(){
 }
 
 int Cor::mostrarAzul(){
-    int argc;
-    char* argv;
+    /*int argc;
+    char* argv;*/
 
     string imageName( "/home/rebeca/azul.jpg"); //acessar imagem
-    if(argc > 1){
+    /*if(argc > 1){
         imageName = argv[1];
-    }
+    }*/
     Mat image;
     image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
     if(image.empty()){ //verficar se o arquivo existe
@@ -49,13 +49,13 @@ int Cor::mostrarAzul(){
 }
 
 int Cor::mostrarBranco(){
-    int argc;
-    char* argv;
+    /*int argc;
+    char* argv;*/
 
     string imageName( "/home/rebeca/branco.jpg"); //acessar imagem
-    if(argc > 1){
+    /*if(argc > 1){
         imageName = argv[1];
-    }
+    }*/
     Mat image;
     image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
     if(image.empty()){ //verficar se o arquivo existe
@@ -68,13 +68,13 @@ int Cor::mostrarBranco(){
 }
 
 int Cor::mostrarPreto(){
-    int argc;
-    char* argv;
+    /*int argc;
+    char* argv;*/
 
     string imageName( "/home/rebeca/preto.jpg"); //acessar imagem
-    if(argc > 1){
+    /*if(argc > 1){
         imageName = argv[1];
-    }
+    }*/
     Mat image;
     image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
     if(image.empty()){ //verficar se o arquivo existe
@@ -87,13 +87,13 @@ int Cor::mostrarPreto(){
 }
 
 int Cor::mostrarVerde(){
-    int argc;
-    char* argv;
+    /*int argc;
+    char* argv;*/
 
     string imageName( "/home/rebeca/verde.jpg"); //acessar imagem
-    if(argc > 1){
+    /*if(argc > 1){
         imageName = argv[1];
-    }
+    }*/
     Mat image;
     image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
     if(image.empty()){ //verficar se o arquivo existe
@@ -106,13 +106,13 @@ int Cor::mostrarVerde(){
 }
 
 int Cor::mostrarVermelho(){
-    int argc;
-    char* argv;
+    /*int argc;
+    char* argv;*/
 
     string imageName( "/home/rebeca/vermelho.png"); //acessar imagem
-    if(argc > 1){
+    /*if(argc > 1){
         imageName = argv[1];
-    }
+    }*/
     Mat image;
     image = imread( imageName, IMREAD_COLOR ); // ler o arquivo
     if(image.empty()){ //verficar se o arquivo existe

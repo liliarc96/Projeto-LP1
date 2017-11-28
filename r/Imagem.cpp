@@ -1,5 +1,6 @@
-#include "opencv2/highgui/highgui.hpp"
-#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/highgui.hpp"
+#include "opencv2/imgproc.hpp"
+#include "opencv2/cvconfig.h"
 #include "Imagem.h"
 #include <iostream>
 #include <stdlib.h>
@@ -37,15 +38,6 @@ void Imagem::reconhecerAmarelo(int a){
     - Matriz Verde (38-75)
     - Matriz Vermelho (160-179)*/
 
-/*    createTrackbar("LowH", "Control", &iLowH, 179);
-    createTrackbar("HighH", "Control", &iHighH, 179);
-    //Saturação
-    createTrackbar("LowS", "Control", &iLowS, 255); //Saturation (0 - 255)
-    createTrackbar("HighS", "Control", &iHighS, 255);
-    //Valor
-    createTrackbar("LowV", "Control", &iLowV, 255);//Value (0 - 255)
-    createTrackbar("HighV", "Control", &iHighV, 255);
-*/
     int iLastX = -1;
     int iLastY = -1;
     //Capturando imagem
@@ -70,23 +62,20 @@ void Imagem::reconhecerAmarelo(int a){
         //
         inRange(imgHSV, Scalar(22, 38, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
 
-        //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-        //morphological closing (removes small holes from the foreground)
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
 
-        //Calculate the moments of the thresholded image
         Moments oMoments = moments(imgThresholded);
 
         double dM01 = oMoments.m01;
         double dM10 = oMoments.m10;
         double dArea = oMoments.m00;
 
-        // if the area <= 10000, I consider that the there are no object in the image and it's because of the noise, the area is not zero
+
         if (dArea > 10000){
-            //calculate the position of the ball
+            //Calcula a posição da cor
             int posX = dM10 / dArea;
             int posY = dM01 / dArea;
 
@@ -94,17 +83,20 @@ void Imagem::reconhecerAmarelo(int a){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
                 setA(a++);
-                //putText(frame, "Amarelo", Point(50, frame.rows * 0.5 + 30),FONT_HERSHEY_DUPLEX,4,Scalar(255,255,255),10);
-            }
+            } /* else {
+                cout << "Cor não detectada" << endl;
+
+                setA(0);
+            }*/
 
             iLastX = posX;
             iLastY = posY;
         }
 
-        imshow("Thresholded Image", imgThresholded); //show the thresholded image
+        imshow("Thresholded Image", imgThresholded); //mostra a imagem thresholded
 
         imgOriginal = imgOriginal + imgLines;
-        imshow("Original", imgOriginal); //show the original image
+        imshow("Original", imgOriginal);
 
         if (waitKey(30) == 27){ //Se o esc for pressionado quebra o loop
             cout << "Tecla Esc foi pressionada pelo usuario" << endl;
@@ -134,15 +126,6 @@ void Imagem::reconhecerAzul(int a){
     - Matriz Verde (38-75)
     - Matriz Vermelho (160-179)*/
 
-/*    createTrackbar("LowH", "Control", &iLowH, 179);
-    createTrackbar("HighH", "Control", &iHighH, 179);
-    //Saturação
-    createTrackbar("LowS", "Control", &iLowS, 255); //Saturation (0 - 255)
-    createTrackbar("HighS", "Control", &iHighS, 255);
-    //Valor
-    createTrackbar("LowV", "Control", &iLowV, 255);//Value (0 - 255)
-    createTrackbar("HighV", "Control", &iHighV, 255);
-*/
     int iLastX = -1;
     int iLastY = -1;
     //Capturando imagem
@@ -164,26 +147,25 @@ void Imagem::reconhecerAzul(int a){
         cvtColor(imgOriginal, imgHSV, COLOR_BGR2HSV); //Converter o frame de BGR para HSV
 
         Mat imgThresholded;
-        //
-        inRange(imgHSV, Scalar(75, 130, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
+        //Valores para cor
+        inRange(imgHSV, Scalar(75, 130, 60), Scalar(179, 255, 255), imgThresholded); //Threshold imagem
 
-        //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-        //morphological closing (removes small holes from the foreground)
+
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
 
-        //Calculate the moments of the thresholded image
+
         Moments oMoments = moments(imgThresholded);
 
         double dM01 = oMoments.m01;
         double dM10 = oMoments.m10;
         double dArea = oMoments.m00;
 
-        // if the area <= 10000, I consider that the there are no object in the image and it's because of the noise, the area is not zero
+
         if (dArea > 10000){
-            //calculate the position of the ball
+            //calcula a posição
             int posX = dM10 / dArea;
             int posY = dM01 / dArea;
 
@@ -191,16 +173,20 @@ void Imagem::reconhecerAzul(int a){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
                 setA(a++);
-            }
+            } /*else {
+                cout << "Cor não detectada" << endl;
+
+                setA(0);
+            }*/
 
             iLastX = posX;
             iLastY = posY;
         }
 
-        imshow("Thresholded Image", imgThresholded); //show the thresholded image
+        imshow("Thresholded Image", imgThresholded); //mostrar a imagem thresholded
 
         imgOriginal = imgOriginal + imgLines;
-        imshow("Original", imgOriginal); //show the original image
+        imshow("Original", imgOriginal); //
 
         if (waitKey(30) == 27){ //Se o esc for pressionado quebra o loop
             cout << "Tecla Esc foi pressionada pelo usuario" << endl;
@@ -229,15 +215,6 @@ void Imagem::reconhecerBranco(int a){
     - Matriz Verde (38-75)
     - Matriz Vermelho (160-179)*/
 
-/*    createTrackbar("LowH", "Control", &iLowH, 179);
-    createTrackbar("HighH", "Control", &iHighH, 179);
-    //Saturação
-    createTrackbar("LowS", "Control", &iLowS, 255); //Saturation (0 - 255)
-    createTrackbar("HighS", "Control", &iHighS, 255);
-    //Valor
-    createTrackbar("LowV", "Control", &iLowV, 255);//Value (0 - 255)
-    createTrackbar("HighV", "Control", &iHighV, 255);
-*/
     int iLastX = -1;
     int iLastY = -1;
     //Capturando imagem
@@ -259,26 +236,24 @@ void Imagem::reconhecerBranco(int a){
         cvtColor(imgOriginal, imgHSV, COLOR_BGR2HSV); //Converter o frame de BGR para HSV
 
         Mat imgThresholded;
-        //
+        //Valores para cor
         inRange(imgHSV, Scalar(255, 255, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
 
-        //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-        //morphological closing (removes small holes from the foreground)
+
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
 
-        //Calculate the moments of the thresholded image
         Moments oMoments = moments(imgThresholded);
 
         double dM01 = oMoments.m01;
         double dM10 = oMoments.m10;
         double dArea = oMoments.m00;
 
-        // if the area <= 10000, I consider that the there are no object in the image and it's because of the noise, the area is not zero
+
         if (dArea > 10000){
-            //calculate the position of the ball
+            //calcula a posição
             int posX = dM10 / dArea;
             int posY = dM01 / dArea;
 
@@ -286,13 +261,18 @@ void Imagem::reconhecerBranco(int a){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
                 setA(a++);
-            }
+            } /*else {
+                cout << "Cor não detectada" << endl;
+
+                setA(0);
+            }*/
+
 
             iLastX = posX;
             iLastY = posY;
         }
 
-        imshow("Thresholded Image", imgThresholded); //show the thresholded image
+        imshow("Thresholded Image", imgThresholded); //mostrar a imagem thresholded
 
         imgOriginal = imgOriginal + imgLines;
         imshow("Original", imgOriginal); //show the original image
@@ -324,15 +304,6 @@ void Imagem::reconhecerPreto(int a){
     - Matriz Verde (38-75)
     - Matriz Vermelho (160-179)*/
 
-/*    createTrackbar("LowH", "Control", &iLowH, 179);
-    createTrackbar("HighH", "Control", &iHighH, 179);
-    //Saturação
-    createTrackbar("LowS", "Control", &iLowS, 255); //Saturation (0 - 255)
-    createTrackbar("HighS", "Control", &iHighS, 255);
-    //Valor
-    createTrackbar("LowV", "Control", &iLowV, 255);//Value (0 - 255)
-    createTrackbar("HighV", "Control", &iHighV, 255);
-*/
     int iLastX = -1;
     int iLastY = -1;
     //Capturando imagem
@@ -355,25 +326,22 @@ void Imagem::reconhecerPreto(int a){
 
         Mat imgThresholded;
         //
-        inRange(imgHSV, Scalar(0, 0, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
+        inRange(imgHSV, Scalar(0, 0, 60), Scalar(179, 255, 255), imgThresholded); //Threshold imagem
 
-        //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-        //morphological closing (removes small holes from the foreground)
+
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
 
-        //Calculate the moments of the thresholded image
         Moments oMoments = moments(imgThresholded);
 
         double dM01 = oMoments.m01;
         double dM10 = oMoments.m10;
         double dArea = oMoments.m00;
 
-        // if the area <= 10000, I consider that the there are no object in the image and it's because of the noise, the area is not zero
         if (dArea > 10000){
-            //calculate the position of the ball
+            //Calcula a posição da cor
             int posX = dM10 / dArea;
             int posY = dM01 / dArea;
 
@@ -381,16 +349,21 @@ void Imagem::reconhecerPreto(int a){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
                 setA(a++);
-            }
+            } /*else {
+                cout << "Cor não detectada" << endl;
+
+                setA(0);
+            }*/
+
 
             iLastX = posX;
             iLastY = posY;
         }
 
-        imshow("Thresholded Image", imgThresholded); //show the thresholded image
+        imshow("Thresholded Image", imgThresholded); //Mostra a imagem thresholded
 
         imgOriginal = imgOriginal + imgLines;
-        imshow("Original", imgOriginal); //show the original image
+        imshow("Original", imgOriginal);
 
         if (waitKey(30) == 27){ //Se o esc for pressionado quebra o loop
             cout << "Tecla Esc foi pressionada pelo usuario" << endl;
@@ -419,15 +392,6 @@ void Imagem::reconhecerVerde(int a){
     - Matriz Verde (38-75)
     - Matriz Vermelho (160-179)*/
 
-/*    createTrackbar("LowH", "Control", &iLowH, 179);
-    createTrackbar("HighH", "Control", &iHighH, 179);
-    //Saturação
-    createTrackbar("LowS", "Control", &iLowS, 255); //Saturation (0 - 255)
-    createTrackbar("HighS", "Control", &iHighS, 255);
-    //Valor
-    createTrackbar("LowV", "Control", &iLowV, 255);//Value (0 - 255)
-    createTrackbar("HighV", "Control", &iHighV, 255);
-*/
     int iLastX = -1;
     int iLastY = -1;
     //Capturando imagem
@@ -449,26 +413,23 @@ void Imagem::reconhecerVerde(int a){
         cvtColor(imgOriginal, imgHSV, COLOR_BGR2HSV); //Converter o frame de BGR para HSV
 
         Mat imgThresholded;
-        //
-        inRange(imgHSV, Scalar(38, 75, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
+        //Valores para cores
+        inRange(imgHSV, Scalar(38, 75, 60), Scalar(179, 255, 255), imgThresholded); //Threshold imagem
 
-        //morphological opening (removes small objects from the foreground)
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-        //morphological closing (removes small holes from the foreground)
+
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
 
-        //Calculate the moments of the thresholded image
         Moments oMoments = moments(imgThresholded);
 
         double dM01 = oMoments.m01;
         double dM10 = oMoments.m10;
         double dArea = oMoments.m00;
 
-        // if the area <= 10000, I consider that the there are no object in the image and it's because of the noise, the area is not zero
         if (dArea > 10000){
-            //calculate the position of the ball
+            //Calcula a posição da cor
             int posX = dM10 / dArea;
             int posY = dM01 / dArea;
 
@@ -476,19 +437,21 @@ void Imagem::reconhecerVerde(int a){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
                 setA(a++);
-            } else {
+            } /*else {
                 cout << "Cor não detectada" << endl;
-            }
+
+                setA(0);
+            }*/
 
             iLastX = posX;
             iLastY = posY;
 
         }
 
-        imshow("Thresholded Image", imgThresholded); //show the thresholded image
+        imshow("Thresholded Image", imgThresholded); //Mostra a imagem thresholded
 
         imgOriginal = imgOriginal + imgLines;
-        imshow("Original", imgOriginal); //show the original image
+        imshow("Original", imgOriginal); //
 
         if (waitKey(30) == 27){ //Se o esc for pressionado quebra o loop
             cout << "Tecla Esc foi pressionada pelo usuario" << endl;
@@ -517,15 +480,6 @@ void Imagem::reconhecerVermelho(int a){
     - Matriz Verde (38-75)
     - Matriz Vermelho (160-179)*/
 
-/*    createTrackbar("LowH", "Control", &iLowH, 179);
-    createTrackbar("HighH", "Control", &iHighH, 179);
-    //Saturação
-    createTrackbar("LowS", "Control", &iLowS, 255); //Saturation (0 - 255)
-    createTrackbar("HighS", "Control", &iHighS, 255);
-    //Valor
-    createTrackbar("LowV", "Control", &iLowV, 255);//Value (0 - 255)
-    createTrackbar("HighV", "Control", &iHighV, 255);
-*/
     int iLastX = -1;
     int iLastY = -1;
     //Capturando imagem
@@ -547,26 +501,26 @@ void Imagem::reconhecerVermelho(int a){
         cvtColor(imgOriginal, imgHSV, COLOR_BGR2HSV); //Converter o frame de BGR para HSV
 
         Mat imgThresholded;
-        //
-        inRange(imgHSV, Scalar(160, 179, 60), Scalar(179, 255, 255), imgThresholded); //Threshold the image
+        //Valored das cores
+        inRange(imgHSV, Scalar(160, 179, 60), Scalar(179, 255, 255), imgThresholded); //Threshold imagem
 
-        //morphological opening (removes small objects from the foreground)
+
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
-        //morphological closing (removes small holes from the foreground)
+
         dilate( imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
         erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)) );
 
-        //Calculate the moments of the thresholded image
+
         Moments oMoments = moments(imgThresholded);
 
         double dM01 = oMoments.m01;
         double dM10 = oMoments.m10;
         double dArea = oMoments.m00;
 
-        // if the area <= 10000, I consider that the there are no object in the image and it's because of the noise, the area is not zero
+
         if (dArea > 10000){
-            //calculate the position of the ball
+            //Calcula a posição da cor
             int posX = dM10 / dArea;
             int posY = dM01 / dArea;
 
@@ -574,7 +528,11 @@ void Imagem::reconhecerVermelho(int a){
                 //Desenha uma linha vermelha por onde o objeto passar
                 line(imgLines, Point(posX, posY), Point(iLastX, iLastY), Scalar(0,0,255), 2);
                 setA(a++);
-            }
+            } /*else {
+                cout << "Cor não detectada" << endl;
+
+                setA(0);
+            }*/
 
             iLastX = posX;
             iLastY = posY;
@@ -582,12 +540,12 @@ void Imagem::reconhecerVermelho(int a){
             break;
         }
 
-        imshow("Thresholded Image", imgThresholded); //show the thresholded image
+        imshow("Thresholded Image", imgThresholded); //mostra a imagem thresholded
 
         imgOriginal = imgOriginal + imgLines;
-        imshow("Original", imgOriginal); //show the original image
+        imshow("Original", imgOriginal);
 
-        if (waitKey(30) == 27){ //Se o esc for pressionado quebra o loop
+        if (waitKey(30) == 27){ //Se o esc for pressionado quebra o loop r vai para outra cor
             cout << "Tecla Esc foi pressionada pelo usuario" << endl;
             break;
         }
